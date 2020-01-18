@@ -7,7 +7,8 @@ Vagrant.configure("2") do |config|
     # define VM2
     config.vm.define "vm2" do |vm2|
       vm2.vm.box = "ubuntu/trusty64"
-      vm2.vm.network "forwarded_port", guest: 80, host: 7070, host_ip: "127.0.0.1", id: "vm_app"
+      vm2.vm.network "forwarded_port", guest: 8090, host: 8090, host_ip: "127.0.0.1", id: "vm_app"
+      vm2.vm.provision :shell, :path => "provision/vm2_setup.sh"
     end
     # define VM3
     config.vm.define "vm3" do |vm3|
