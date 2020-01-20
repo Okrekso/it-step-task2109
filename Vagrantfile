@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
       vm2.vm.box = "ubuntu/trusty64"
       
       vm2.vm.provider "virtualbox" do |v|
-        v.memory=2048
+        v.memory=4096
       end
 
       vm2.vm.network "forwarded_port", guest: 8090, host: 8090, host_ip: "127.0.0.1", id: "vm_app"
