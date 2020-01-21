@@ -11,11 +11,18 @@ docker run --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSSWORD="root" -d mysql/mys
 docker logs mysql | grep -E "GENERATED ROOT PASSWORD" > /tmp/mysqlpass.txt
 # enter mysql
 # sudo docker exec -it mysql mysql -uroot -p
+
+# ===============================================================
+# this lines is not gonna strat because of mysql start up take a bit time
+# just copy and paste it in your ssh console
+# ===============================================================
 pass="$(docker logs mysql | grep -E "GENERATED ROOT PASSWORD")"; 
 pass="$(cut -d":" -f2 <<<$pass)"; echo $pass > /tmp/mysqlpass.txt;
 pass="$(cut -d" " -f2 <<<$pass)"; echo $pass > /tmp/mysqlpass.txt;
-# pass="$(docker logs mysql | grep -E "GENERATED ROOT PASSWORD")"; pass="$(cut -d":" -f2 <<<$pass)"
 
-docker exec -i mysql mysql -uroot -p$pass --connect-expired-password
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
-exit;
+
+# docker exec -it mysql mysql -uroot -p$pass --connect-expired-password
+# ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+# CREATE DATABASE confdb CHARACTER SET utf8 COLLATE utf8_bin;
+# GRANT ALL PRIVILEGES ON confdb.* TO 'confuser'@'192.168.33.22' IDENTIFIED BY 'conf';
+# exit;

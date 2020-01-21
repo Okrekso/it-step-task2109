@@ -1,12 +1,12 @@
 # docker part
 # =============================================
-sudo apt-get update
+# sudo apt-get update
 # check and delete old version of dockers
 
 echo "\n======================="
 echo "check and delete old version of dockers"
 echo "=======================\n"
-sudo apt-get -y remove docker docker-engine docker.io
+# sudo apt-get -y remove docker docker-engine docker.io
 # install new version of docker
 
 echo "======================="
