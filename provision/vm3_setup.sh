@@ -13,6 +13,7 @@ echo "======================="
 echo "installing docker..."
 echo "======================="
 sudo apt -y install docker.io
+sudo apt -y install grep
 # startup setup
 sudo usermod -a -G docker vagrant
 sudo systemctl start docker
