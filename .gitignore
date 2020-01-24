@@ -1,2 +1,5 @@
 .vagrant/*
 *.bin
+my_key
+my_key.pub
+yoko-ssh-docker_id_rsa

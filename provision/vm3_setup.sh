@@ -30,3 +30,13 @@ echo "pulling mysql image..."
 echo "======================="
 docker pull mysql/mysql-server:5.7
 # =============================================
+
+echo "======================="
+echo "removing all previous machines"
+echo "======================="
+docker rm $(docker ps -a -q)
+
+echo "======================="
+echo "running docker mysql container"
+echo "======================="
+docker run --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSSWORD="root" -d mysql/mysql-server:5.7

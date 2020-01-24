@@ -7,5 +7,6 @@ chmod a+x confluence.bin
 
 sudo su
 cp ./mysqldriver.jar /opt/atlassian/confluence/confluence/WEB-INF/lib
-sudo /etc/init.d/confluence restart -fg
+/opt/atlassian/confluence/bin/stop-confluence.sh; /opt/atlassian/confluence/bin/start-confluence.sh
+# sudo /etc/init.d/confluence restart -fg
 # /opt/atlassian/confluence/bin/start-confluence.sh
