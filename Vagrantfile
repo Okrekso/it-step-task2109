@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
       vm1.vm.box = "centos/7"
       vm1.vm.provision :shell, :path => "provision/vm1_setup.sh"
       vm1.vm.provision :shell, :path => "provision/app_vm_provision.sh", run: "always"
-      vm1.vm.network "private_network", ip: "192.168.33.11"
+      vm1.vm.network "private_network", ip: "192.1l68.33.11"
       vm1.vm.network "forwarded_port", guest: 80, host: 8080, id: "vm_proxy"
     end
     # define VM2

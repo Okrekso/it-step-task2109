@@ -39,4 +39,8 @@ docker rm $(docker ps -a -q)
 echo "======================="
 echo "running docker mysql container"
 echo "======================="
-docker run --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSSWORD="root" -d mysql/mysql-server:5.7
+# docker run --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD="root" -d mysql/mysql-server:5.7
+# docker build https://github.com/mysql/mysql-docker.git
+cd /vagrant/mysql-docker/5.7
+docker build --tag "customysql:latest" .
+docker run --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD="root" -d customysql:latest
